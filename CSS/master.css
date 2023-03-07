@@ -1,3 +1,8 @@
+* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
 :root {
    --main-color: #2196f3;
    --main-color-alt: #1787e0;
@@ -14,4 +19,115 @@ html{
 }
 ul{
    list-style: none;
+   margin: 0;
+   padding: 0;
 }
+a {
+   text-decoration: none;
+}
+.container{
+   padding-left: 15px;
+   padding-right: 15px;
+   margin: 0 auto;
+}
+/* Small */
+@media (min-width: 768px){
+   .container{
+      width: 750px;
+   }
+}
+/* Small */
+@media (min-width: 768px){
+   .container{
+      width: 750px;
+   }
+}
+/* medium */
+@media (min-width: 992px){
+   .container{
+      width: 970px;
+   }
+}
+/* large */
+@media (min-width: 1200px){
+   .container{
+      width: 1170px;
+   }
+}
+
+
+/* Start Header */
+
+header{
+   position: relative;
+   -moz-box-shadow: 0 0 10px #ddd;
+   -webkit-box-shadow: 0 0 10px #ddd;
+   box-shadow: 0 0 10px #ddd;
+}
+header .container{
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+header .container a.logo{
+   color: var(--main-color);
+   font-weight: bold;
+   font-size: 26px;
+   padding: 22.5px 0;
+}
+header .container .links{
+   display: flex;
+}
+header .container .links li{
+   padding: 25px 30px;
+   position: relative;
+   overflow: hidden;
+   transition: var(--main-transition);
+}
+header .container .links li::before{
+   content: '';
+   width: 100%;
+   height: 4px;
+   position: absolute;
+   top: 0;
+   left: -100%;
+   transition: var(--main-transition);
+   background-color: var(--main-color , --main-color-alt);
+}
+header .container .links li:hover{
+   background-color: #fafafa;
+}
+header .container .links li:hover::before{
+   left: 0;
+}
+header .container .links li:hover a{
+   color: var(--main-color , --main-color-alt);
+}
+header .container .links li a{
+   font-size: 20px;
+   color: black;
+   font-size: 18px;
+   transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+   header .container{
+      flex-direction: column;
+   }
+   header .container a.logo{
+      padding: 12px 0;
+   }
+   header .container .links li{
+      padding: 10px;
+   }
+   header .container .links li a{
+      font-size: 14px;
+   }
+}
+header .container .mega-menu{
+   position: absolute;
+}
+header .container .links li:last-of-type:hover{
+}
+
+/* End Header */
