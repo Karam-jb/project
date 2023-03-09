@@ -3,6 +3,10 @@
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 }
+*::selection{
+   background-color: var(--main-color);
+   color: white;
+}
 :root {
    --main-color: #2196f3;
    --main-color-alt: #1787e0;
@@ -409,7 +413,7 @@ header .container .mega-menu ul li a i{
    color: #fff;
 }
 .features .container .box:first-of-type{
-   --color: #f44036
+   --color: #f44036;
 }
 .features .container .box:nth-of-type(2){
    --color: #009688;
@@ -638,7 +642,163 @@ width: fit-content;
 .team-members .container .box .info p{
    margin-top: 10px;
 }
+
 /* End Team-Members */
+
+/* Start Services */
+
+.services {
+   padding-top: var(--main-padding-top);
+   padding-bottom: var(--main-padding-bottom);
+   background: var(--section-background);
+}
+.services .container{
+   display: grid;
+   grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+   gap: 40px;
+   text-align: center;
+}
+.services .container .box{
+   background-color: #fff;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   color: var(--main-color , --main-color-alt);
+   box-shadow:0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+   counter-increment: services;
+   transition: var(--main-transition);
+}
+.services .container .box:hover{
+   transform: translateY(-15px);
+   box-shadow:0 12px 20px 0 rgb(0 0 0 / 20%), 0 2px 4px 0 rgb(0 0 0 / 15%);
+}
+.services .container .box::before{
+   content: '';
+   position: absolute;
+   width: 0;
+   height: 4px;
+   background-color: var(--main-color , --main-color-alt);
+   top: 0;
+   left: 50%;
+   transition: var(--main-transition);
+}
+.services .container .box:hover::before{
+   width: 100%;
+   left: 0;
+}
+.services .container .box .icon{
+   padding: 30px 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 25px;
+}
+.services .container .box .icon i{
+   color: #d5d5d5;
+}
+.services .container .box .icon h3{
+   margin: 0;
+   font-size: 25px;
+   text-transform: capitalize;
+   font-weight: bold;
+}
+.services .container .box .foot{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   position: relative;
+}
+.services .container .box .foot::before{
+   content: counters(services, ".", decimal-leading-zero);
+   background-color: var(--main-color, --main-color-alt);
+   color: white;
+   position: absolute;
+   left: 0;
+   height: 100%;
+   width: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 30px;
+   font-weight: 800;
+   padding-right: 30px;
+}
+.services .container .box .foot::after{
+   content: "";
+   position: absolute;
+   background: #d5d5d5;
+   transform: skewx(-30deg);
+   height: 100%;
+   width:50px;
+   left: 75px;
+}
+.services .container .box .foot a{
+   display: block;
+   text-decoration: none;
+   color: var(--main-color , --main-color-alt);
+   padding: 15px 20px;
+}
+/* End Services */
+
+/* Start Skills */
+
+.skills{
+   padding-top: var(--main-padding-top);
+   padding-bottom: var(--main-padding-bottom);
+}
+.skills .container{
+   display: flex;
+   justify-content: space-between;
+   align-self: center;
+}
+.skills .container img{
+   max-width: 40%;
+}
+.skills .container .stats{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   width: 60%;
+}
+.skills .container .stats .bar{
+   width: 100%;
+}
+.skills .container .stats .bar h3{
+   
+}
+.skills .container .stats .bar .progress{
+   height: 30px;
+   background: #eee;
+   position: relative;
+}
+.skills .container .stats .bar .progress::after{
+   content: attr(data-progress);
+   position: absolute;
+   right: 0;
+   top: -35px;
+   font-size: 12px;
+   padding: 3px 8px;
+   border-radius: 4px;
+   border: 1px solid #ccc;
+   color: var(--main-color, --main-color-alt);
+}
+.skills .container .stats .bar .progress span{
+   display:block;
+   height: 100%;
+   background-color: var(--main-color , --main-color-alt);
+}
+@media (max-width: 991px) {
+   .skills .container img {
+      display: none;
+   }
+   .skills .container .stats{
+      width: 100%;
+   }
+}
+/* End Skills */
+
 /* Start Animations */
 
 @keyframes popup {
@@ -688,12 +848,13 @@ width: fit-content;
       left: 0;
       width: 12px;
       height: 12px;
+      border-radius: 50%;
       top: calc(50% - 6px);
    }
    100%{
       left: 0;
       border-radius: 0;
-      width: 50%;
+      width: 51%;
       height: 100%;
       top: 0;
    }
@@ -704,12 +865,13 @@ width: fit-content;
       right: 0;
       width: 12px;
       height: 12px;
+      border-radius: 50%;
       top: calc(50% - 6px);
    }
    100%{
       right: 0;
       border-radius: 0;
-      width: 50%;
+      width: 51%;
       height: 100%;
       top: 0;
    }
