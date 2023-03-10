@@ -106,6 +106,28 @@ h2.main-heading::after{
    height: 0;
    background: linear-gradient(70deg , white 25% , transparent 25%);
 }
+.dots-up{
+   position: absolute;
+   width: 204px;
+   height: 186px;
+   right: 0px;
+   top: 200px;
+   background: radial-gradient(var(--main-color) 24%, #fff 24%);
+   background-size: 17px 17px;
+   background-position: 0 0;
+   z-index: -1;
+}
+.dots-down{
+   position: absolute;
+   width: 204px;
+   height: 186px;
+   left: 0px;
+   bottom: 200px;
+   background: radial-gradient(var(--main-color) 24%, #fff 24%);
+   background-size: 17px 17px;
+   background-position: 0 0;
+   z-index: -1;
+}
 /* End Components */
 
 /* Start Header */
@@ -816,7 +838,7 @@ width: fit-content;
    max-width: 100%;
 }
 .work .container .box{
-   padding: 20px 30px;
+   padding: 30px;
    background-color: #f6f6f6;
    display: flex;
    justify-content: space-between;
@@ -856,6 +878,7 @@ width: fit-content;
    color: #777;
    line-height: 1.7;
    font-size: 18px;
+   margin: 5px 0 0;
 }
 @media (max-width:991px){
    .work .container{
@@ -863,6 +886,135 @@ width: fit-content;
    }
 }
 /* End work */
+
+/* Start Events */
+.events {
+   padding-top: var(--main-padding-top);
+   padding-bottom: var(--main-padding-bottom);
+   position: relative;
+}
+.events .container{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.events .container .content{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.events .container .content img{
+   max-width: 450px;
+}
+.events .container .content .count-down{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+}
+.events .container .content .count-down .time{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 10px;
+}
+.events .container .content .count-down .time .count{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: column;
+   border: 1px solid var(--border-count);
+   width: 75px;
+   border-radius: 4px;
+   position: relative;
+   text-align: center;
+   --border-count: #d4d4d4;
+   transition: var(--main-transition);
+   background-color: #ffffff99;
+}
+.events .container .content .count-down .time .count:hover{
+   --border-count: var(--main-color);
+}
+.events .container .content .count-down .time .count span:first-of-type{
+   font-weight: bold;
+   color: var(--main-color);
+   font-size: 35px;
+   padding: 15px;
+}
+.events .container .content .count-down .time .count span:last-of-type{
+   padding: 8px 10px;
+   font-size: 13px;
+   border-top: 1px solid var(--border-count);
+   transition: var(--main-transition);
+   width: 100%;
+   text-transform: capitalize;
+}
+.events .container .content .count-down h2{
+   font-size: 30px;
+   margin: 20px 0 0;
+}
+.events .container .content .count-down p{
+   margin: 0;
+   line-height: 1.7;
+   color: #777;
+   font-size: 19px;
+   text-align: center;
+   background-color: #ffffff99;
+}
+.events .container .subscribe {
+   width: 100%;
+   margin: 70px 0 0;
+}
+.events .container .subscribe form{
+   display: flex;
+   margin: 0 auto;
+   width: 600px;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+   background-color: #f6f6f5;
+   padding: 30px 40px;
+   border-radius: 50px;
+}
+.events .container .subscribe form *:focus{
+   outline: none;
+}
+.events .container .subscribe form input[type="email"]{
+   padding: 20px;
+   border: none;
+   flex: 1;
+   border-radius: 50px;
+   caret-color: var(--main-color);
+}
+.events .container .subscribe form input[type="submit"]{
+   padding: 20px;
+   background-color: var(--main-color);
+   color: white;
+   text-transform: capitalize;
+   border: none;
+   border-radius: 50px;
+   font-weight: bold;
+   cursor: pointer;
+}
+@media (max-width: 991px) {
+   .events .container .content img{
+      display: none;
+   }
+   .events .container .subscribe form{
+      flex-direction: column;
+      max-width: 100%;
+      border-radius: 0;
+   }
+   .events .container .subscribe form input[type="email"]{
+      width: 100%;
+      border-radius: 0;
+   }
+   .events .container .subscribe form input[type="submit"]{
+      width: 100%;
+      border-radius: 0;
+   }
+}
+/* End Events */
 
 /* Start Animations */
 
